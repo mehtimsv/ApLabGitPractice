@@ -18,8 +18,8 @@ void push(int x)
 	if (!front)
 		front = node;
 	else {
+	    rear = node;
 		rear->next = node;
-		rear = node;
 	}
 }
 
@@ -39,6 +39,7 @@ void search(int x)
 	alfaptr node = front;
 	int counter = 0;
 	while (node)
+	    {
 		if (node->x == x)
 			printf("%d", counter);
 		else {
@@ -46,29 +47,33 @@ void search(int x)
 			break;
 		}
 		node = node->next;
+		}
 }
 
 void rpop() {//pop last element
 	alfaptr node = front;
 	while (node)
 		node = node->next;
-	free(rear);
 	rear = node;
+	free(rear);
 }
 
 void set()
 {
 	alfaptr node = front;
 	for (int i = 0; i < MAX_SIZE && node; i++, node = node->next)
-		arr[i] = node->x;
+		  arr[i] = node->x;
 }
 
 int size()
 {
 	alfaptr node = front;
-	int count;
+	int count=0;
 	while (node)
-		count++;node = node->next;
+	    {
+		count++;
+		node = node->next;
+		}
 	return count;
 }
 
@@ -88,7 +93,7 @@ int average()
 {
 
 	alfaptr node = front;
-	int sum = 0, count;
+	int sum = 0, count=0;
 	while (node) {
 		sum += node->x;
 		count++;
