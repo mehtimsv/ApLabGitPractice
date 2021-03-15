@@ -15,19 +15,3 @@ int main()
     cin >> findIt;
     cout << countAllSpecificChars(sArr, 4, findIt);
 }
-
-int countAllSpecificChars(string sArr[], int arrLength, char specificChar)
-{
-    int count = 0;
-    for (int i = 0; i < arrLength; i++)
-    {
-        for (int j = 0; j < sArr[i].size(); j++)
-        {
-            if (sArr[i][j] == specificChar)
-            {
-                count++;
-            }
-        }
-    }
-    return count;
-}
