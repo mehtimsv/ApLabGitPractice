@@ -30,6 +30,29 @@ void push(int x)
 		rear = node;
 	}
 }
+void pop()
+{
+	if (!front)
+	{
+		cout << "ERROR1" << endl;
+	}
+	else
+	{
+		if (front == rear)
+		{
+			delete front;
+			front = NULL;
+			rear = NULL;
+		}
+		else
+		{
+			alfaptr node;
+			node = front->next;
+			delete front;
+			front = node;
+		}
+	}
+}
 void search(int x)
 {
 	alfaptr node = front;
