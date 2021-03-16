@@ -8,3 +8,4 @@ int main()
 	printf("%d", *p);
 	return 0;
 }
+// output : 3(pointes at 3rd element of array)

@@ -15,19 +15,24 @@ void push(int x)
 	alfaptr node;
 	node = (alfaptr)malloc(sizeof(struct alfa));
 	node->x = x;
-	if (!front)
+	if (!front){
 		front = node;
+		front->next = nullptr;
+		rear = node;
+		rear->next = nullptr;
+	}
 	else {
 		rear->next = node;
 		rear = node;
+		rear->next = nullptr;
 	}
 }
 
 void pop()
 {
 	alfaptr node;
-	if (!front)
-		printf("ERROR1");
+	if (front == nullptr)
+		assert(front == nullptr);
 	else
 	{
 		node = front->next;
@@ -37,45 +42,55 @@ void pop()
 void search(int x)
 {
 	alfaptr node = front;
-	int counter = 0;
-	while (node)
+	int counter = 1;
+	while (node!=nullptr){
 		if (node->x == x)
 			printf("%d", counter);
-		else {
-			printf("ERROR2");
-			break;
-		}
+		counter++;
 		node = node->next;
+	}
 }
 
 void rpop() {//pop last element
 	alfaptr node = front;
-	while (node)
+	if(node == nullptr)
+		return;
+	if(node->next == nullptr){
+		delete node->next;
+		node->next = nullptr;
+		rear=node;
+		return;
+	}
+	while (node->next->next != nullptr) {
 		node = node->next;
-	free(rear);
-	rear = node;
-}
-
-void set()
-{
-	alfaptr node = front;
-	for (int i = 0; i < MAX_SIZE && node; i++, node = node->next)
-		arr[i] = node->x;
+	}
+	delete node->next;
+	node->next = nullptr;
+	rear=node;
 }
 
 int size()
 {
 	alfaptr node = front;
-	int count;
-	while (node)
-		count++;node = node->next;
+	int count=0;
+	while (node){
+		count++;
+		node = node->next;
+	}
 	return count;
+}
+
+void set()
+{
+	alfaptr node = front;
+	for (int i = 0; i < size(); i++, node = node->next)
+		arr[i] = node->x;
 }
 
 void show()
 {
-	if (!front) {
-		for (int i = 0; i < MAX_SIZE; i++)
+	if (front!=nullptr) {
+		for (int i = 0; i < size(); i++)
 			printf("%d ", arr[i]);
 	}
 	else
@@ -88,7 +103,7 @@ int average()
 {
 
 	alfaptr node = front;
-	int sum = 0, count;
+	int sum = 0, count=0;
 	while (node) {
 		sum += node->x;
 		count++;
