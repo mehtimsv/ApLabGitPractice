@@ -3,7 +3,7 @@
 #define MAX_SIZE 200
 int arr[MAX_SIZE];
 
-typedef struct alfa * alfaptr;
+typedef struct alfa* alfaptr;
 
 struct alfa {
 	long long x;
@@ -33,27 +33,31 @@ void pop()
 		node = front->next;
 		front = node;
 	}
+	node = front->next;
+	free(front);
+	front = node;
 }
 void search(int x)
 {
 	alfaptr node = front;
 	int counter = 0;
-	while (node)
-		if (node->x == x)
+	while (node) {
+		if (node->x == x) {
 			printf("%d", counter);
-		else {
-			printf("ERROR2");
 			break;
 		}
 		node = node->next;
+		counter++;
+	}
 }
 
 void rpop() {//pop last element
 	alfaptr node = front;
-	while (node)
+	while (node->next && node->next != rear)
 		node = node->next;
 	free(rear);
 	rear = node;
+	node->next = 0;
 }
 
 void set()
@@ -66,29 +70,29 @@ void set()
 int size()
 {
 	alfaptr node = front;
-	int count;
-	while (node)
-		count++;node = node->next;
+	int count = 0;
+	while (node) {
+		count++;
+		node = node->next;
+	}
 	return count;
 }
 
 void show()
 {
+	alfaptr temp = front;
 	if (!front) {
-		for (int i = 0; i < MAX_SIZE; i++)
-			printf("%d ", arr[i]);
+		for (int i = 0; i < MAX_SIZE && temp; i++ && temp = temp->next)
+			printf("%d ", temp->x);
 	}
-	else
-	{
-		printf("ERROR3");
-	}
+
 }
 
-int average()
+float average()
 {
 
 	alfaptr node = front;
-	int sum = 0, count;
+	int sum = 0, count = 0;
 	while (node) {
 		sum += node->x;
 		count++;
