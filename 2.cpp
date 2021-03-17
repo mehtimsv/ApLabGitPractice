@@ -1,4 +1,4 @@
-#include <iostream>
+#include <iostream>///last :)
 #include <string>
 #pragma warning (disable:4996)
 
@@ -31,9 +31,9 @@ int main() {
 			"ap",
 			"class"
 	};
-debug_printf("%d\n", sArr[0].size());///baraye test.
+	debug_printf("%d\n", sArr[0].size());///baraye test.
 	char findIt;
 	cin >> findIt;
-  
+
 	cout << countAllSpecificChars(sArr, 4, findIt);
 }

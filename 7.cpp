@@ -1,4 +1,4 @@
-#include<stdio.h>
+#include<stdio.h>///last :)
 int main()
 {////moshkeli nadarad.
 	int arr[] = { 1, 2, 3, 4, 5 };

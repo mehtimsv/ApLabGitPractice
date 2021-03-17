@@ -1,4 +1,4 @@
-﻿#include<stdio.h>
+﻿#include<stdio.h>///last :)
 const char* f(const char** p) {
 	 const char* q = (p + 1)[1];///bekhtere kkoroojie tabe.
 	return q;

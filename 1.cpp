@@ -1,4 +1,4 @@
-#include <iostream>
+#include <iostream>///last :)
 #include <string>
 #pragma warning (disable:4996)
 #ifndef DEBUG
@@ -25,7 +25,7 @@ long long int factorial(int n)
 
 long long int* producingTheFactorialFractions()
 {
-	long long int* b= new long long int[10];/////bayad new mikard agar mikhad hamino return kone.(in local hast.)
+	long long int* b = new long long int[10];/////bayad new mikard agar mikhad hamino return kone.(in local hast.)
 
 	for (long long int i = 9; i >= 0; i--)////i=10 bood ke az size array bishtar bood
 	{
@@ -47,11 +47,11 @@ void checkZeros(long long* a)
 	}
 }
 
-int main(int argc,char**argv)
+int main(int argc, char** argv)
 {
 
 	long long int* a;
-	a = producingTheFactorialFractions( );
+	a = producingTheFactorialFractions();
 	checkZeros(a);
 	//debug_printf(" %d\n", (int)pow(factorial(10), 2.0));///ina baraye emtehane dorost kar kardane har ghesmat az code hast.(dakhele file neveshte mishe.)
 	debug_printf(" %lld\n", (long long int)pow(factorial(10), 2.0));
@@ -60,8 +60,5 @@ int main(int argc,char**argv)
 		cout << a[i] << endl;
 	}
 	delete[] a;///[] mikhast.
-cout<<"hello";
-	cout<<"Bye";
 
 }
-

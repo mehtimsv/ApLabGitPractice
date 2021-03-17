@@ -1,4 +1,4 @@
-#include<stdio.h>
+#include<stdio.h>//////last :)
 #include<stdlib.h>
 #ifndef DEBUG
 #define DEBUG 1
@@ -15,7 +15,7 @@ int arr[MAX_SIZE];
 # define NDEBUG///////////ino baraye in zadam ke code khorooji bede va assert kar nakone.
 #include <assert.h> 
 #include <cassert>
-typedef struct alfa * alfaptr;
+typedef struct alfa* alfaptr;
 
 struct alfa {
 	long long x;
@@ -37,16 +37,16 @@ void push(int x)
 		rear->next = node;
 		rear = node;
 	}
-	
+
 	node->next = NULL;///next node jadid ro barabar NULL gharar midim.
 }
 
 void pop()
 {//avali hazf 
 	alfaptr node;
-	if(!front)
-assert(!front);///assertion
-		//printf("ERROR1");
+	if (!front)
+		assert(!front);///assertion
+				//printf("ERROR1");
 	else
 	{
 		node = front->next;
@@ -58,49 +58,49 @@ void search(int x)
 {
 	alfaptr node = front;
 	int counter = 0;
-	while (node!=NULL)
+	while (node != NULL)
 	{///while [] nadasht.
-			
-		if (node->x == x){
-		counter ++;//counter ro bayad ziad konim.ta halghe edame peyda kone.be else ham niazi nist.
-	
-				}
-				node = node->next;
-	
+
+		if (node->x == x) {
+			counter++;//counter ro bayad ziad konim.ta halghe edame peyda kone.be else ham niazi nist.
+
+		}
+		node = node->next;
+
 	}
-	
+
 	printf("%d", counter);////counter ro print mikonim.
 }
 
 void rpop() {//pop last element
-	if(!front)//bayad check beshe ke NULL nabashe
+	if (!front)//bayad check beshe ke NULL nabashe
 		return;
-		
-	if(front->next == NULL) ///age faghat ye khoone dashte bashim.
-    front = NULL;
-    else
- {
-      
-      alfaptr node  = front;
-      while(node->next->next != NULL)//nabayad ta akhar berim.
-        node = node->next;
-      alfa* lastNode = node->next;
-      node->next = NULL;
-      rear=lastNode ;
-     free (lastNode); 
-    }
+
+	if (front->next == NULL) ///age faghat ye khoone dashte bashim.
+		front = NULL;
+	else
+	{
+
+		alfaptr node = front;
+		while (node->next->next != NULL)//nabayad ta akhar berim.
+			node = node->next;
+		alfa* lastNode = node->next;
+		node->next = NULL;
+		rear = lastNode;
+		free(lastNode);
+	}
 }
 
 void set()
 {
-	if(!front)//bayad check konim.
+	if (!front)//bayad check konim.
 		return;
-		
+
 	alfaptr node = front;
 	for (int i = 0; i < MAX_SIZE && node; i++, node = node->next)
-	
+
 		arr[i] = node->x;
-	
+
 }
 
 int size()
@@ -124,7 +124,7 @@ void show()
 	else
 	{//ina bejaye error bayad gharar begiran.(agar set nashode bashe.)
 		alfaptr node = front;
-		while(node)
+		while (node)
 		{
 			printf("%lld ", node->x);
 			node = node->next;
@@ -134,7 +134,7 @@ void show()
 
 int average()
 {
-	if(!front)////agar front NULL bood bayad 0 bargardoonim.
+	if (!front)////agar front NULL bood bayad 0 bargardoonim.
 		return 0;
 
 	alfaptr node = front;
@@ -178,8 +178,8 @@ int main()///bejaye void int mikhaim.
 			set();
 			break;
 		case 6://show
-	
-          debug_printf("%d",average());//baraye test.
+
+			debug_printf("%d", average());//baraye test.
 			show();
 			break;
 		case 7://size
@@ -188,6 +188,6 @@ int main()///bejaye void int mikhaim.
 		case 10:
 			exit(0);
 		}
-	}	
-return 0;///ino bayad ezafe konim.
+	}
+	return 0;///ino bayad ezafe konim.
 }
