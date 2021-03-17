@@ -1,6 +1,6 @@
-﻿#include<stdio.h>
+﻿#include<stdio.h>///last :)
 int main()
-{
+{////moshkeli nadare
     int arr[] = { 10, 20, 30, 40, 50, 60 };
     int *ptr1 = arr;
     int *ptr2 = arr + 5;

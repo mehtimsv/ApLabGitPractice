@@ -1,6 +1,6 @@
-﻿#include<stdio.h>
+﻿#include<stdio.h>///last :)
 int main()
-{
+{///moshkeli nadarad.
 	int a;
 	char *x;
 	x = (char *)&a;
