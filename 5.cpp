@@ -1,4 +1,4 @@
-//50 is ascii code of '2'
+﻿//50 is ascii code of '2'
 #include<stdio.h>
 int main()
 {

@@ -1,4 +1,4 @@
-//in dige che code sammi bod :o
+﻿//in dige che code sammi bod :o
 
 #include<stdio.h>
 #include<stdlib.h>
