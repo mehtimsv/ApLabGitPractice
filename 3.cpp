@@ -74,7 +74,7 @@ int size()
 
 void show()
 {
-	if (!front) {
+	if (front) {
 		for (int i = 0; i < MAX_SIZE; i++)
 			printf("%d ", arr[i]);
 	}
@@ -88,7 +88,7 @@ int average()
 {
 
 	alfaptr node = front;
-	int sum = 0, count;
+	int sum = 0, count = 0;
 	while (node) {
 		sum += node->x;
 		count++;

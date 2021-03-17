@@ -13,7 +13,7 @@ long long int factorial(int n)
 
 long long int *producingTheFactorialFractions()
 {
-    long long b[10];
+    long long b[11];
 
 	for (int i = 10; i >= 0; i--)
 	{
@@ -26,7 +26,7 @@ void checkZeros(long long *a)
 {
 	for (int i = 9; i >= 0; i--)
 	{
-		if (a[i] = 0)
+		if (a[i] == 0)
 			cout << "Zero Found" << endl;
 	}
 }
