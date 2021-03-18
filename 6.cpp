@@ -1,5 +1,5 @@
-﻿#include<stdio.h>
-int main()
+﻿#include<stdio.h>//last with cmd
+int main()//Moshkeli nadare code.
 {
 	int a;
 	char *x;
