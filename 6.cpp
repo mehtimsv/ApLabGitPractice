@@ -9,3 +9,4 @@ int main()
 	printf("%d\n", a);
 	return 0;
 }
+// add rese a ro be char constant kar bad barabare x gharar dad
