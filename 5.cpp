@@ -8,3 +8,4 @@ int main()
     printf("%c", (char)(*ptr2 - *ptr1));
     return 0;
 }
+//dar khat aval akhtelaf ar[0]-ar[5] va dar khat dovom ekhtelaf adrese khane ha
