@@ -3,7 +3,7 @@
 #define MAX_SIZE 200
 int arr[MAX_SIZE];
 
-typedef struct alfa * alfaptr;
+typedef struct alfa* alfaptr;
 
 struct alfa {
 	long long x;
@@ -45,7 +45,7 @@ void search(int x)
 			printf("ERROR2");
 			break;
 		}
-		node = node->next;
+	node = node->next;
 }
 
 void rpop() {//pop last element
@@ -68,7 +68,7 @@ int size()
 	alfaptr node = front;
 	int count;
 	while (node)
-		count++;node = node->next;
+		count++; node = node->next;
 	return count;
 }
 
