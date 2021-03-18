@@ -7,3 +7,4 @@ int main()
     printf("%f", *ptr2 - *ptr1);
     return 0;
 }
+// addres aray copy shod dar pointer;
