@@ -16,7 +16,11 @@ void push(int x)
 	node = (alfaptr)malloc(sizeof(struct alfa));
 	node->x = x;
 	if (!front)
+	{
 		front = node;
+		rear = node ;
+	}
+		
 	else {
 		rear->next = node;
 		rear = node;
@@ -30,8 +34,19 @@ void pop()
 		printf("ERROR1");
 	else
 	{
-		node = front->next;
-		front = node;
+		if (front == rear)
+		{
+			delete front;
+			front = NULL;
+			rear = NULL;
+		}
+		else
+		{
+			alfaptr node;
+			node = front->next;
+			delete front;
+			front = node;
+		}
 	}
 }
 void search(int x)

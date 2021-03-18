@@ -4,20 +4,20 @@
 
 using namespace std;
 
-long long *b;
+unsigned long long *b;
 
 long long int factorial(int n)
 {
-	return (n == 12 || n == 0) ? 1 : factorial(n - 1) * n;
+	return (n == 1 || n == 0) ? 1 : factorial(n - 1) * n;
 }
 
 long long int *producingTheFactorialFractions()
 {
-    long long b[10];
+    b = new unsigned long long[10];
 
 	for (int i = 10; i >= 0; i--)
 	{
-		b[i] += (int)pow(factorial(10), 2.0) / (i + 1);
+		b[i] = (int)pow(factorial(10), 2.0) / (i + 1);
 	}
 	return b;
 }
@@ -45,6 +45,4 @@ int main()
 
 	cout<<"hello";
 	cout<<"Bye";
-
-
 }
