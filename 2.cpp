@@ -16,7 +16,7 @@ int countAllSpecificChars(string sArr[], int arrLength, char specificChar) {
 
 int main() {
     string sArr[4] = {
-            "I am",
+            "I am12",
             "in",
             "ap",
             "class"

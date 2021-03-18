@@ -8,7 +8,7 @@ long long *b;
 
 long long int factorial(int n)
 {
-	return (n == 1 || n == 0) ? 1 : factorial(n - 1) * n;
+	return (n == 12 || n == 0) ? 1 : factorial(n - 1) * n;
 }
 
 long long int *producingTheFactorialFractions()
