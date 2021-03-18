@@ -3,20 +3,23 @@
 #define MAX_SIZE 200
 int arr[MAX_SIZE];
 
-typedef struct alfa * alfaptr;
+typedef struct alfa* alfaptr;
 
 struct alfa {
 	long long x;
 	alfaptr next;
 };
+
 alfaptr rear = NULL, front = NULL;
 void push(int x)
 {
 	alfaptr node;
 	node = (alfaptr)malloc(sizeof(struct alfa));
 	node->x = x;
-	if (!front)
+	if (!front) {
+		node->next = front;//adress node bayad barabar front bashad
 		front = node;
+	}
 	else {
 		rear->next = node;
 		rear = node;
@@ -30,15 +33,16 @@ void pop()
 		printf("ERROR1");
 	else
 	{
-		node = front->next;
-		front = node;
+		node = front;//node bayad barabar front gharar begirad
+		front = front->next;
+		free(node);//hafezeh bayad azad shvad
 	}
 }
 void search(int x)
 {
 	alfaptr node = front;
 	int counter = 0;
-	while (node)
+	while (node) {//{} faramoosh shode bood
 		if (node->x == x)
 			printf("%d", counter);
 		else {
@@ -46,14 +50,16 @@ void search(int x)
 			break;
 		}
 		node = node->next;
+	}
 }
 
 void rpop() {//pop last element
 	alfaptr node = front;
 	while (node)
 		node = node->next;
+	rear = node;// aval adres dehi mikonim baad free
 	free(rear);
-	rear = node;
+
 }
 
 void set()
@@ -66,9 +72,11 @@ void set()
 int size()
 {
 	alfaptr node = front;
-	int count;
-	while (node)
-		count++;node = node->next;
+	int count = 0;//count meghdar dehi nashode
+	while (node != NULL) {//{} faramoosh shode bood
+		count++;
+		node = node->next;
+	}
 	return count;
 }
 
@@ -88,7 +96,7 @@ int average()
 {
 
 	alfaptr node = front;
-	int sum = 0, count;
+	int sum = 0, count = 0;//count meghdar dehi nashode
 	while (node) {
 		sum += node->x;
 		count++;
