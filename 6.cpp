@@ -1,4 +1,5 @@
 ﻿#include<stdio.h>
+// out put 513
 int main()
 {
 	int a;
