@@ -3,7 +3,7 @@
 #define MAX_SIZE 200
 int arr[MAX_SIZE];
 
-typedef struct alfa * alfaptr;
+typedef struct alfa* alfaptr;
 
 struct alfa {
 	long long x;
@@ -15,8 +15,11 @@ void push(int x)
 	alfaptr node;
 	node = (alfaptr)malloc(sizeof(struct alfa));
 	node->x = x;
-	if (!front)
-		front = node;
+	//////////////////////
+	if (!front) {
+		node->next = NULL;///NULL nakarde bud.
+		front = rear = node;///rear ra niz barabar ba node migozarim.
+	}
 	else {
 		rear->next = node;
 		rear = node;
@@ -38,22 +41,42 @@ void search(int x)
 {
 	alfaptr node = front;
 	int counter = 0;
+	int found = 0;///flag tarif mikonim.
+
+	///////////////
+
 	while (node)
-		if (node->x == x)
+	{
+		if (node->x == x) {
 			printf("%d", counter);
-		else {
-			printf("ERROR2");
+			found = 1;///flag ro 1 mizarim ke bedunim peyda shode.
 			break;
 		}
 		node = node->next;
+		counter++;///
+	}
+	////in shart ro baraye peyda nashodanesh mizarim.
+	if (found == 0)
+	{
+		printf("ERROR1");
+	}
 }
 
 void rpop() {//pop last element
 	alfaptr node = front;
-	while (node)
+	if (!front) {///agar front NULL bud
+		return;
+	}
+	if (!front->next) {
+		rear = NULL;
+		front == NULL;
+		return;
+	}
+	while (node->next && node->next->next)////bejaye node, inaro mizarim
 		node = node->next;
 	free(rear);
 	rear = node;
+	rear->next = NULL;////
 }
 
 void set()
@@ -66,7 +89,7 @@ void set()
 int size()
 {
 	alfaptr node = front;
-	int count;
+	int count = 0;///meghdardeho avaliye mikonim
 	while (node)
 		count++;node = node->next;
 	return count;
@@ -74,8 +97,9 @@ int size()
 
 void show()
 {
-	if (!front) {
-		for (int i = 0; i < MAX_SIZE; i++)
+	alfa* node = front;///node az jense alfa taarif mikonim
+	if (front) {////taajobe if bardashtam
+		for (int i = 0; i < MAX_SIZE && node; i++, node = node->next)///sharte halghe avaz shod.
 			printf("%d ", arr[i]);
 	}
 	else
@@ -88,13 +112,14 @@ int average()
 {
 
 	alfaptr node = front;
-	int sum = 0, count;
+	int sum = 0, count = 0;///meghdardehi avaliye
 	while (node) {
 		sum += node->x;
 		count++;
 		node = node->next;
 	}
-	return sum / count;
+	/// //.////////
+	return (int)sum / count;///inja niaz be cast bud.
 }
 
 void main()
