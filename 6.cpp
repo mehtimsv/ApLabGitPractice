@@ -9,3 +9,5 @@ int main()
 	printf("%d\n", a);
 	return 0;
 }
+//out put:513
+//Moshkeli nadare
