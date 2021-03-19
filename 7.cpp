@@ -8,3 +8,5 @@ int main()
 	printf("%d", *p);
 	return 0;
 }
+//out put: 3
+//Moshkeli nadare
