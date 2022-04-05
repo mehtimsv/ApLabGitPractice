@@ -9,3 +9,8 @@ int main()
 	printf("%d\n", a);
 	return 0;
 }
+//////////////////////////////////////////////////////
+/*
+   code bedune eshkale :)
+   output: 513
+*/

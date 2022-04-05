@@ -8,3 +8,10 @@ int main()
     printf("%c", (char)(*ptr2 - *ptr1));
     return 0;
 }
+//////////////////////////////////////////////////////
+/*
+   code bedune eshkale :)
+   output: 50 
+           2
+
+*/
