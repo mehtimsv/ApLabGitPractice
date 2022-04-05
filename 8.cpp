@@ -1,4 +1,6 @@
 ﻿#include<stdio.h>
+// out put >> Be WooW
+
 const char * f(const char **p) {
 	auto q = (p + sizeof(char))[1];
 	return q;

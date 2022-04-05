@@ -1,4 +1,5 @@
 ﻿#include<stdio.h>
+// out put 50 2
 int main()
 {
     int arr[] = { 10, 20, 30, 40, 50, 60 };
