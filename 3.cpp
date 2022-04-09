@@ -1,5 +1,7 @@
-﻿#include<stdio.h>
-#include<stdlib.h>
+﻿// #include<stdio.h>
+// #include<stdlib.h>
+#include <iostream>
+using namespace std;
 #define MAX_SIZE 200
 int arr[MAX_SIZE];
 
@@ -13,10 +15,14 @@ alfaptr rear = NULL, front = NULL;
 void push(int x)
 {
 	alfaptr node;
-	node = (alfaptr)malloc(sizeof(struct alfa));
+	node = new alfa;
 	node->x = x;
+	node->next = NULL;
 	if (!front)
+	{	
 		front = node;
+		rear = node;
+	}
 	else {
 		rear->next = node;
 		rear = node;
@@ -27,10 +33,11 @@ void pop()
 {
 	alfaptr node;
 	if (!front)
-		printf("ERROR1");
+		cout << "ERROR1" << endl;
 	else
 	{
 		node = front->next;
+		free(front);
 		front = node;
 	}
 }
@@ -39,21 +46,25 @@ void search(int x)
 	alfaptr node = front;
 	int counter = 0;
 	while (node)
+	{
 		if (node->x == x)
-			printf("%d", counter);
-		else {
-			printf("ERROR2");
-			break;
+		{	
+			cout << counter << endl;
+			return;
 		}
+		
+		counter++;
 		node = node->next;
+	}
+	cout << "ERROR2" << endl;
 }
 
 void rpop() {//pop last element
 	alfaptr node = front;
-	while (node)
+	while (node->next->next)	
 		node = node->next;
 	free(rear);
-	rear = node;
+	rear->next = NULL;
 }
 
 void set()
@@ -66,48 +77,55 @@ void set()
 int size()
 {
 	alfaptr node = front;
-	int count;
+	int count=0;
 	while (node)
-		count++;node = node->next;
+	{	
+		count++;
+		node = node->next;
+	}
+
 	return count;
 }
 
 void show()
 {
-	if (!front) {
+	if (front) 
+	{
 		for (int i = 0; i < MAX_SIZE; i++)
-			printf("%d ", arr[i]);
+			cout << arr[i] << " ";
 	}
 	else
 	{
-		printf("ERROR3");
+		cout << "ERROR3" ;
 	}
+	cout << endl;
 }
 
-int average()
+double average()
 {
 
 	alfaptr node = front;
-	int sum = 0, count;
+	double sum = 0;
+	double count = 0;
 	while (node) {
 		sum += node->x;
-		count++;
+		count += 1;
 		node = node->next;
 	}
 	return sum / count;
 }
 
-void main()
+int main()
 {
 	int cmd;
 	long long int x;
 	while (true)
 	{
-		scanf("%d", &cmd);
+		cin >> cmd;
 		switch (cmd)
 		{
 		case 1://push
-			scanf("%lld", &x);
+			cin >> x;
 			push(x);
 			break;
 		case 2://pop
@@ -117,7 +135,7 @@ void main()
 			rpop();
 			break;
 		case 4://search
-			scanf("%lld", &x);
+			cin >> x;
 			search(x);
 			break;
 		case 5://set
@@ -127,7 +145,7 @@ void main()
 			show();
 			break;
 		case 7://size
-			printf("%d", size());
+			cout << size() << endl;
 			break;
 		case 10:
 			exit(0);
