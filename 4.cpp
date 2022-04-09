@@ -5,5 +5,6 @@ int main()
     float *ptr1 = &arr[0];
     float *ptr2 = ptr1 + 3;
     printf("%f", *ptr2 - *ptr1);
+    // result of the run: 90.5 - 12.5 = 78.0000
     return 0;
 }

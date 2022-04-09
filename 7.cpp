@@ -6,5 +6,7 @@ int main()
 	++*p;
 	p += 2;
 	printf("%d", *p);
+	/* result of the run: 3 because line 7 will change the part that pointer is pointing to
+	the third data of the array which is 3 */
 	return 0;
 }
