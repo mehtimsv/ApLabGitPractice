@@ -13,20 +13,20 @@ long long int factorial(int n)
 
 long long int *producingTheFactorialFractions()
 {
-    long long b[10];
+    b = new long long [10];
 
-	for (int i = 10; i >= 0; i--)
+	for (int i = 9; i >= 0; i--)
 	{
-		b[i] += (int)pow(factorial(10), 2.0) / (i + 1);
+		b[i] += (long long int)pow(factorial(10), 2.0) / (i + 1);
 	}
-	return b;
+	return b;	
 }
 
 void checkZeros(long long *a)
 {
 	for (int i = 9; i >= 0; i--)
 	{
-		if (a[i] = 0)
+		if (a[i] == 0)
 			cout << "Zero Found" << endl;
 	}
 }
@@ -42,9 +42,6 @@ int main()
 		cout << a[i] << endl;
 	}
 	delete a;
-
-	cout<<"hello";
-	cout<<"Bye";
-
-
+	cout<<"hello" << endl;
+	cout<<"Bye" << endl;
 }
