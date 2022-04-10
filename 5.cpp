@@ -8,3 +8,4 @@ int main()
     printf("%c", (char)(*ptr2 - *ptr1));
     return 0;
 }
+// it will print 50 and 2
