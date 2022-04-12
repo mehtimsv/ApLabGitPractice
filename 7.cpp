@@ -8,3 +8,4 @@ int main()
 	printf("%d", *p);
 	return 0;
 }
+// This program adds 1 unit to arr[0] but prints arr[2].

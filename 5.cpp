@@ -8,3 +8,4 @@ int main()
     printf("%c", (char)(*ptr2 - *ptr1));
     return 0;
 }
+// This program prints vlue of arr[5] - arr[0] (60 - 10 = 50) and symbol of 2 in ascii code. 
