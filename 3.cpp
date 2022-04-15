@@ -1,23 +1,29 @@
-﻿#include<stdio.h>
-#include<stdlib.h>
+﻿#include <stdio.h>
+#include <stdlib.h>
 #define MAX_SIZE 200
 int arr[MAX_SIZE];
 
-typedef struct alfa * alfaptr;
+typedef struct alfa *alfaptr;
 
-struct alfa {
-	long long x;
+struct alfa
+{
+	long long int x;
 	alfaptr next;
 };
 alfaptr rear = NULL, front = NULL;
-void push(int x)
+void push(long long int x)
 {
 	alfaptr node;
 	node = (alfaptr)malloc(sizeof(struct alfa));
 	node->x = x;
+	node->next = NULL;
 	if (!front)
+	{
 		front = node;
-	else {
+		rear = node;
+	}
+	else
+	{
 		rear->next = node;
 		rear = node;
 	}
@@ -31,29 +37,39 @@ void pop()
 	else
 	{
 		node = front->next;
+		free(front);
 		front = node;
 	}
 }
-void search(int x)
+void search(long long int x)
 {
 	alfaptr node = front;
 	int counter = 0;
 	while (node)
+	{
 		if (node->x == x)
-			printf("%d", counter);
-		else {
+		{
+			printf("%d\n", counter);
+			break;
+		}
+		else if (node->next == NULL)
+		{
 			printf("ERROR2");
 			break;
 		}
+		counter++;
 		node = node->next;
+	}
 }
 
-void rpop() {//pop last element
+void rpop()
+{ // pop last element
 	alfaptr node = front;
-	while (node)
+	while (node->next->next)
 		node = node->next;
 	free(rear);
 	rear = node;
+	// printf("%d",rear->x);
 }
 
 void set()
@@ -66,17 +82,26 @@ void set()
 int size()
 {
 	alfaptr node = front;
-	int count;
+	int count = 0;
 	while (node)
-		count++;node = node->next;
+	{
+		node = node->next;
+		count++;
+	}
 	return count;
 }
 
 void show()
 {
-	if (!front) {
-		for (int i = 0; i < MAX_SIZE; i++)
+	if (front)
+	{
+		printf("Your linked list elements are --> [ ");
+		for (int i = 0; i < size(); i++)
+		{
 			printf("%d ", arr[i]);
+			if (i == size() - 1)
+				printf(" ]\n");
+		}
 	}
 	else
 	{
@@ -88,48 +113,58 @@ int average()
 {
 
 	alfaptr node = front;
-	int sum = 0, count;
-	while (node) {
+	long long int sum = 0, count = 0;
+	while (node)
+	{
 		sum += node->x;
 		count++;
 		node = node->next;
 	}
 	return sum / count;
 }
-
-void main()
+void menu()
+{
+	printf("\nEnter the number of your choise (1 : push) (2 : pop) (3 : rpop) (4 : search) (5 : set) (6 : show) (7 : size) (8 : average) (9 : exit) \n");
+}
+int main()
 {
 	int cmd;
 	long long int x;
 	while (true)
 	{
+		menu();
 		scanf("%d", &cmd);
 		switch (cmd)
 		{
-		case 1://push
-			scanf("%lld", &x);
+		case 1: // push
+			scanf("%d", &x);
 			push(x);
+			system("cls");
 			break;
-		case 2://pop
+		case 2: // pop
 			pop();
 			break;
-		case 3://rpop
+		case 3: // rpop
 			rpop();
 			break;
-		case 4://search
-			scanf("%lld", &x);
+		case 4: // search
+			scanf("%d", &x);
 			search(x);
 			break;
-		case 5://set
+		case 5: // set
 			set();
+			system("cls");
 			break;
-		case 6://show
+		case 6: // show
 			show();
 			break;
-		case 7://size
-			printf("%d", size());
+		case 7: // size
+			printf("%d\n", size());
 			break;
-		case 10:
+		case 8:
+			printf("%d\n", average());
+			break;
+		default:
 			exit(0);
 		}
 	}
