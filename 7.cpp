@@ -6,5 +6,6 @@ int main()
 	++*p;
 	p += 2;
 	printf("%d", *p);
+	//Output is a number it is 3
 	return 0;
 }
