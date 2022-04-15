@@ -7,5 +7,6 @@ int main()
 	a = 512;
 	x[0] = 1;
 	printf("%d\n", a);
+	//Output is 513
 	return 0;
 }
