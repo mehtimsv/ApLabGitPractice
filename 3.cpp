@@ -95,8 +95,13 @@ void show()
 {
 	if (front)
 	{
+		printf("Your linked list elements are --> [ ");
 		for (int i = 0; i < size(); i++)
+		{
 			printf("%d ", arr[i]);
+			if (i == size() - 1)
+				printf(" ]\n");
+		}
 	}
 	else
 	{
@@ -119,7 +124,7 @@ int average()
 }
 void menu()
 {
-	printf("\nEnter the number of your choise (1 : push) (2 : pop) (3 : rpop) (4 : search) (5 : set) (6 : show) (7 : size) (8 : exit) \n");
+	printf("\nEnter the number of your choise (1 : push) (2 : pop) (3 : rpop) (4 : search) (5 : set) (6 : show) (7 : size) (8 : average) (9 : exit) \n");
 }
 int main()
 {
@@ -134,6 +139,7 @@ int main()
 		case 1: // push
 			scanf("%d", &x);
 			push(x);
+			system("cls");
 			break;
 		case 2: // pop
 			pop();
@@ -147,12 +153,16 @@ int main()
 			break;
 		case 5: // set
 			set();
+			system("cls");
 			break;
 		case 6: // show
 			show();
 			break;
 		case 7: // size
-			printf("%d", size());
+			printf("%d\n", size());
+			break;
+		case 8:
+			printf("%d\n", average());
 			break;
 		default:
 			exit(0);
