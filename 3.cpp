@@ -38,7 +38,7 @@ void pop()
 		front = node;
 	}
 }
-void search(int x)
+void search(long long int x)
 {
 	alfaptr node = front;
 	int counter = 0;
