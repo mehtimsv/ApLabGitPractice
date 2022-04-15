@@ -43,7 +43,7 @@ int main()
 	}
 	delete a;
 
-	cout<<"hello";
+	cout<<"hello"<<endl;
 	cout<<"Bye";
 
 
