@@ -6,7 +6,7 @@ int arr[MAX_SIZE];
 typedef struct alfa * alfaptr;
 
 struct alfa {
-	long long x;
+	int x;
 	alfaptr next;
 };
 alfaptr rear = NULL, front = NULL;
@@ -15,8 +15,10 @@ void push(int x)
 	alfaptr node;
 	node = (alfaptr)malloc(sizeof(struct alfa));
 	node->x = x;
+	node->next=NULL;
 	if (!front)
-		front = node;
+		{front = node;
+		 rear=node;}
 	else {
 		rear->next = node;
 		rear = node;
@@ -27,10 +29,11 @@ void pop()
 {
 	alfaptr node;
 	if (!front)
-		printf("ERROR1");
+		printf("ERROR1\n");
 	else
 	{
 		node = front->next;
+		free(front);
 		front = node;
 	}
 }
@@ -39,18 +42,19 @@ void search(int x)
 	alfaptr node = front;
 	int counter = 0;
 	while (node)
-		if (node->x == x)
-			printf("%d", counter);
-		else {
-			printf("ERROR2");
+		{if (node->x == x)
+			printf("%d ", counter);
+		else if(node->next==NULL){
+			printf("ERROR2\n");
 			break;
 		}
-		node = node->next;
+		counter++;
+		node = node->next;}
 }
 
 void rpop() {//pop last element
 	alfaptr node = front;
-	while (node)
+	while (node->next->next)
 		node = node->next;
 	free(rear);
 	rear = node;
@@ -66,21 +70,24 @@ void set()
 int size()
 {
 	alfaptr node = front;
-	int count;
+	int count=0;
 	while (node)
-		count++;node = node->next;
+		{
+		 node = node->next;
+		 count++;
+        }
 	return count;
 }
 
 void show()
 {
-	if (!front) {
-		for (int i = 0; i < MAX_SIZE; i++)
+	if (front) {
+		for (int i = 0; i < size(); i++)
 			printf("%d ", arr[i]);
 	}
 	else
 	{
-		printf("ERROR3");
+		printf("ERROR3\n");
 	}
 }
 
@@ -88,7 +95,7 @@ int average()
 {
 
 	alfaptr node = front;
-	int sum = 0, count;
+	int sum = 0, count=0;
 	while (node) {
 		sum += node->x;
 		count++;
@@ -97,17 +104,16 @@ int average()
 	return sum / count;
 }
 
-void main()
-{
-	int cmd;
-	long long int x;
+int main()
+{	int cmd;
+	int x;
 	while (true)
 	{
 		scanf("%d", &cmd);
 		switch (cmd)
 		{
 		case 1://push
-			scanf("%lld", &x);
+			scanf("%d", &x);
 			push(x);
 			break;
 		case 2://pop
@@ -117,7 +123,7 @@ void main()
 			rpop();
 			break;
 		case 4://search
-			scanf("%lld", &x);
+			scanf("%d", &x);
 			search(x);
 			break;
 		case 5://set
@@ -127,7 +133,7 @@ void main()
 			show();
 			break;
 		case 7://size
-			printf("%d", size());
+			printf("%d\n", size());
 			break;
 		case 10:
 			exit(0);
