@@ -1,0 +1,3 @@
+/home/alireza/CLionProjects/ApLabGitPractice/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/alireza/CLionProjects/ApLabGitPractice/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/alireza/CLionProjects/ApLabGitPractice/cmake-build-debug/CMakeFiles/ApLabGitPractice.dir
