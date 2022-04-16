@@ -7,5 +7,5 @@ int main()
 	a = 512;
 	x[0] = 1;
 	printf("%d\n", a);
-	return 0;
+	return 0;//the program prints 513.
 }
