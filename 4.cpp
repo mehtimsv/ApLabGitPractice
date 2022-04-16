@@ -6,4 +6,5 @@ int main()
     float *ptr2 = ptr1 + 3;
     printf("%f", *ptr2 - *ptr1);
     return 0;
+    //the program prints value of arr[3]-arr[0].(=78.0)
 }
