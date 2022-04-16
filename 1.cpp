@@ -13,7 +13,7 @@ long long int factorial(int n)
 
 long long int *producingTheFactorialFractions()
 {
-    long long b[10];
+    b = new long long[10];
 
 	for (int i = 10; i >= 0; i--)
 	{
