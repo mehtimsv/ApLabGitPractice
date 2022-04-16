@@ -7,4 +7,5 @@ int main()
     printf("%d\n", (*ptr2 - *ptr1));
     printf("%c", (char)(*ptr2 - *ptr1));
     return 0;
+    //the program prints value of arr[5]-arr[0](=50) and convert previous result to char. 
 }
