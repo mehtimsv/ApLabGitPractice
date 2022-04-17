@@ -11,13 +11,11 @@ long long int factorial(int n)
 	return (n == 1 || n == 0) ? 1 : factorial(n - 1) * n;
 }
 
-long long int *producingTheFactorialFractions()
+long long int *producingTheFactorialFractions(long long int* b)
 {
-    long long b[10];
-
 	for (int i = 10; i >= 0; i--)
 	{
-		b[i] += (int)pow(factorial(10), 2.0) / (i + 1);
+		b[i] = (int)pow(factorial(10), 2.0) / (i + 1);
 	}
 	return b;
 }
@@ -26,7 +24,7 @@ void checkZeros(long long *a)
 {
 	for (int i = 9; i >= 0; i--)
 	{
-		if (a[i] = 0)
+		if (a[i] == 0)
 			cout << "Zero Found" << endl;
 	}
 }
@@ -34,8 +32,8 @@ void checkZeros(long long *a)
 int main()
 {
 
-	long long int *a;
-	a = producingTheFactorialFractions();
+	long long int *a = new long long int[11];
+	a = producingTheFactorialFractions(a);
 	checkZeros(a);
 	for (int i = 0; i < 10; i++)
 	{
@@ -48,3 +46,5 @@ int main()
 
 
 }
+
+// moteasefaneh har chi fekr kardam nafahmidan function producingTheFactorialFractions chikar mikone pas benazaram eshkal manteghi nadasht
