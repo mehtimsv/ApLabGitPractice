@@ -8,3 +8,6 @@ int main()
     printf("%c", (char)(*ptr2 - *ptr1));
     return 0;
 }
+//output in terminal is:
+//50
+//2 

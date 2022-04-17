@@ -11,3 +11,4 @@ int main() {
 
 	
 }
+//output in terminal is : Be WooW

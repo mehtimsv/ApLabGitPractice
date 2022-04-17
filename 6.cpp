@@ -1,11 +1,11 @@
-﻿#include<stdio.h>
+#include<stdio.h>
 int main()
 {
-	int a;
-	char *x;
-	x = (char *)&a;
-	a = 512;
-	x[0] = 1;
-	printf("%d\n", a);
+	int arr[] = { 1, 2, 3, 4, 5 };
+	int *p = arr;
+	++*p;
+	p += 2;
+	printf("%d", *p);
 	return 0;
 }
+//output in terminal is 3
