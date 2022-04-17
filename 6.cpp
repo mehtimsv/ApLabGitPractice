@@ -1,4 +1,4 @@
-﻿#include<stdio.h>
+﻿#include<cstdio>
 int main()
 {
 	int a;
@@ -9,3 +9,4 @@ int main()
 	printf("%d\n", a);
 	return 0;
 }
+//513

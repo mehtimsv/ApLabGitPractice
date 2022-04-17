@@ -1,5 +1,5 @@
-﻿#include<stdio.h>
-#include<stdlib.h>
+﻿#include<cstdio>
+#include<cstdlib>
 #define MAX_SIZE 200
 int arr[MAX_SIZE];
 
@@ -97,7 +97,7 @@ int average()
 	return sum / count;
 }
 
-void main()
+int main()
 {
 	int cmd;
 	long long int x;
