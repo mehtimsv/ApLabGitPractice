@@ -8,3 +8,4 @@ int main()
 	printf("%d", *p);
 	return 0;
 }
+//oomad khune avale araye ro 2 kard va raft khune sevom ro print kard ke shod 3

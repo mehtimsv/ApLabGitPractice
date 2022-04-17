@@ -1,9 +1,10 @@
 ﻿#include<stdio.h>
 #include<stdlib.h>
+#pragma warning(disable:4996)
 #define MAX_SIZE 200
 int arr[MAX_SIZE];
 
-typedef struct alfa * alfaptr;
+typedef struct alfa* alfaptr;
 
 struct alfa {
 	long long x;
@@ -18,8 +19,8 @@ void push(int x)
 	if (!front)
 		front = node;
 	else {
-		rear->next = node;
 		rear = node;
+		front->next = rear;
 	}
 }
 
@@ -45,7 +46,7 @@ void search(int x)
 			printf("ERROR2");
 			break;
 		}
-		node = node->next;
+	node = node->next;
 }
 
 void rpop() {//pop last element
@@ -66,15 +67,15 @@ void set()
 int size()
 {
 	alfaptr node = front;
-	int count;
+	int count = 0;
 	while (node)
-		count++;node = node->next;
+		count++; node = node->next;
 	return count;
 }
 
 void show()
 {
-	if (!front) {
+	if (front) {
 		for (int i = 0; i < MAX_SIZE; i++)
 			printf("%d ", arr[i]);
 	}
@@ -88,7 +89,7 @@ int average()
 {
 
 	alfaptr node = front;
-	int sum = 0, count;
+	int sum = 0, count = 0;
 	while (node) {
 		sum += node->x;
 		count++;
@@ -97,7 +98,7 @@ int average()
 	return sum / count;
 }
 
-void main()
+int main()
 {
 	int cmd;
 	long long int x;
@@ -134,3 +135,8 @@ void main()
 		}
 	}
 }
+// chon exit() int return mikone main ro int migozarim
+// 2 ta count dasht ke mosavi 0 mizarim
+// line 22, 23 avaz shod
+// line 78 "!" bardashte shod
+// line 76 nemidunam show mikhad chikar kone daghighan

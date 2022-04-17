@@ -7,3 +7,4 @@ int main()
     printf("%f", *ptr2 - *ptr1);
     return 0;
 }
+//javab 78; miad khune 4th araye ro az khune 1st kam mikone
