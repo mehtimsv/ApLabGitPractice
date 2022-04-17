@@ -1,4 +1,6 @@
 ﻿#include<stdio.h>
+using namespace std;
+
 int main()
 {
 	int a;
@@ -8,4 +10,7 @@ int main()
 	x[0] = 1;
 	printf("%d\n", a);
 	return 0;
+
+	//the result
+	//513
 }

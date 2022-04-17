@@ -1,4 +1,6 @@
 ﻿#include<stdio.h>
+using namespace std;
+
 int main()
 {
     int arr[] = { 10, 20, 30, 40, 50, 60 };
@@ -7,4 +9,7 @@ int main()
     printf("%d\n", (*ptr2 - *ptr1));
     printf("%c", (char)(*ptr2 - *ptr1));
     return 0;
+
+    //the result
+    //50 , 2
 }

@@ -1,4 +1,5 @@
 ﻿#include<stdio.h>
+using namespace std;
 const char * f(const char **p) {
 	auto q = (p + sizeof(char))[1];
 	return q;
@@ -8,6 +9,7 @@ int main() {
 	printf("%c%c ", *f(str), *(f(str) + 1));
 	printf("%c%c%c%c\n", **str, *(*(str + 1) + 1), *((str + 2)[-1] + 1), **&*(&str[-1] + 1));
 
-
+    //the result 
+	//Be WooW
 	
 }
