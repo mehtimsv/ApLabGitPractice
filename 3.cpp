@@ -1,9 +1,13 @@
 ﻿#include<stdio.h>
 #include<stdlib.h>
+#pragma warning(disable:4996)
 #define MAX_SIZE 200
 int arr[MAX_SIZE];
 
-typedef struct alfa * alfaptr;
+//do ta countash moshkel dasht
+
+
+typedef struct alfa* alfaptr;
 
 struct alfa {
 	long long x;
@@ -45,7 +49,7 @@ void search(int x)
 			printf("ERROR2");
 			break;
 		}
-		node = node->next;
+	node = node->next;
 }
 
 void rpop() {//pop last element
@@ -66,9 +70,9 @@ void set()
 int size()
 {
 	alfaptr node = front;
-	int count;
+	int count = 0;
 	while (node)
-		count++;node = node->next;
+		count++; node = node->next;
 	return count;
 }
 
@@ -88,7 +92,8 @@ int average()
 {
 
 	alfaptr node = front;
-	int sum = 0, count;
+	int sum = 0;
+	int	count = 0;
 	while (node) {
 		sum += node->x;
 		count++;
@@ -97,7 +102,7 @@ int average()
 	return sum / count;
 }
 
-void main()
+int main()
 {
 	int cmd;
 	long long int x;
