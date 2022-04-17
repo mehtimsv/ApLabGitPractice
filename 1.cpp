@@ -4,7 +4,7 @@
 
 using namespace std;
 
-long long *b;
+//long long *b;
 
 long long int factorial(int n)
 {
@@ -13,9 +13,10 @@ long long int factorial(int n)
 
 long long int *producingTheFactorialFractions()
 {
-    long long b[10];
+    long long int b[10];
+	
 
-	for (int i = 10; i >= 0; i--)
+	for (int i = 9; i >= 0; i--)
 	{
 		b[i] += (int)pow(factorial(10), 2.0) / (i + 1);
 	}
