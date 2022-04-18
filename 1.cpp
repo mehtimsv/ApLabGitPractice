@@ -4,7 +4,7 @@
 
 using namespace std;
 
-long long int *b;
+long long int *	b;
 
 long long int factorial(int n)
 {
@@ -13,11 +13,13 @@ long long int factorial(int n)
 
 long long int *producingTheFactorialFractions()
 {
+	//memory allocation
 	b = new long long int[10];
-
+	//10 -> 9
 	for (int i = 9; i >= 0; i--)
 	{
-		b[i] = (pow(factorial(10), 2.0) / (i + 1));
+		//equal
+		b[i] = (long long int)(pow(factorial(10), 2.0) / (i + 1));
 	}
 	return b;
 }
@@ -26,6 +28,7 @@ void checkZeros(long long *a)
 {
 	for (int i = 9; i >= 0; i--)
 	{
+		//equality oprator
 		if (a[i] == 0)
 			cout << "Zero Found" << endl;
 	}
